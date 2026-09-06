@@ -1,0 +1,45 @@
+{% load i18n %}
+<footer class="footer">
+  <div class="container">
+    <div class="footer__top">
+      <div class="footer__brand">
+        <span class="brand"><span class="brand__fa">آلوپان</span><span class="brand__en ltr">ALUPAN</span></span>
+        <p>{{ site.tagline|default:"تولیدکننده‌ی سیستم‌های نمای آلومینیوم بر پایه‌ی تکنولوژی AluK ایتالیا." }}</p>
+      </div>
+
+      <div>
+        <h4>سیستم‌ها</h4>
+        <ul>
+          <li><a href="{% url 'systems:list' %}">کرتین‌وال</a></li>
+          <li><a href="{% url 'systems:list' %}">در و پنجره‌ی ترمال‌بریک</a></li>
+          <li><a href="{% url 'systems:list' %}">سیستم‌های کشویی</a></li>
+          <li><a href="{% url 'systems:list' %}">لوور و سایه‌بان</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>شرکت</h4>
+        <ul>
+          <li><a href="{% url 'core:about' %}">درباره‌ی ما</a></li>
+          <li><a href="{% url 'projects:list' %}">پروژه‌ها</a></li>
+          <li><a href="{% url 'news:list' %}">اخبار</a></li>
+          <li><a href="{% url 'contact:contact' %}">همکاری و نمایندگی</a></li>
+        </ul>
+      </div>
+
+      <div>
+        <h4>تماس</h4>
+        <ul>
+          <li>{{ site.address|default:"تهران، ..." }}</li>
+          {% if site.phone %}<li><a class="ltr" href="tel:{{ site.phone }}">{{ site.phone }}</a></li>{% endif %}
+          {% if site.email %}<li><a class="ltr" href="mailto:{{ site.email }}">{{ site.email }}</a></li>{% endif %}
+        </ul>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span>© {% now "Y" %} {{ site.company_name|default:"آلوپان" }}. تمامی حقوق محفوظ است.</span>
+      <span class="ltr">AluK® is a registered trademark of its owner.</span>
+    </div>
+  </div>
+</footer>

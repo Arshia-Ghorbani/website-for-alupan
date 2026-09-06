@@ -1,0 +1,19 @@
+# --- Core ------------------------------------------------------------------
+Django==5.2.6
+django-environ==0.12.0           # 12-factor settings from env / .env
+psycopg[binary]==3.2.9           # PostgreSQL driver (psycopg 3)
+Pillow==11.3.0                   # ImageField processing
+
+# --- i18n ------------------------------------------------------------------
+django-modeltranslation==0.19.16 # per-language model fields (fa / en)
+
+# --- Async / cache ---------------------------------------------------------
+celery==5.5.3
+redis==6.4.0
+
+# --- Serving ---------------------------------------------------------------
+gunicorn==23.0.0
+whitenoise[brotli]==6.9.0
+
+# --- Security --------------------------------------------------------------
+argon2-cffi==25.1.0              # Argon2 password hashing

@@ -1,0 +1,263 @@
+{% extends "base.html" %}
+{% load i18n static %}
+
+{% block title %}آلوپان | سیستم‌های نمای آلومینیوم با تکنولوژی AluK ایتالیا{% endblock %}
+{% block meta_description %}آلوپان، تولیدکننده‌ی سیستم‌های کرتین‌وال، در و پنجره‌ی ترمال‌بریک آلومینیومی بر پایه‌ی پروفیل و یراق‌آلات AluK ایتالیا.{% endblock %}
+{% block body_class %}is-loading{% endblock %}
+
+{% block content %}
+
+{% include "partials/_icon-sprite.html" %}
+
+{# ==========================================================================
+   HERO — cinematic load: the artwork mask opens upward, then the headline
+   words stagger up out of their own masks. Driven by js/main.js (#hero).
+   ========================================================================== #}
+<section class="hero" id="hero">
+  <div class="container hero__inner">
+    <span class="eyebrow" data-hero-item>سیستم‌های نمای آلومینیوم</span>
+
+    <h1 class="display hero__title" data-split-words>
+      نمایی که ساختمان را تعریف می‌کند
+    </h1>
+
+    <div class="hero__row">
+      <p class="lead hero__lead" data-hero-item>
+        آلوپان سیستم‌های کرتین‌وال، در و پنجره‌ی ترمال‌بریک آلومینیومی را
+        بر پایه‌ی پروفیل و یراق‌آلات <span class="ltr">AluK</span> ایتالیا
+        طراحی، تولید و اجرا می‌کند.
+      </p>
+
+      <div class="hero__actions" data-hero-item>
+        <a class="btn" href="{% url 'systems:list' %}">
+          مشاهده‌ی سیستم‌ها
+          <svg class="btn__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M10 3 5 8l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/>
+          </svg>
+        </a>
+        <a class="btn btn--ghost" href="{% url 'contact:contact' %}">گفت‌وگو با کارشناسان</a>
+      </div>
+    </div>
+  </div>
+
+  {# The panel that rises from the bottom edge on load.
+     Drop a real photograph in when you have one:
+     style="--facade-image: url('{% static 'images/hero-facade.jpg' %}')" #}
+  <div class="hero__panel">
+    <div class="hero__mask" data-hero-mask>
+      <div class="hero__art" data-hero-art></div>
+      <div class="hero__grid" aria-hidden="true"></div>
+    </div>
+
+    <div class="scroll-cue" aria-hidden="true">
+      <span>اسکرول</span>
+      <span class="scroll-cue__rail"><span class="scroll-cue__dot"></span></span>
+    </div>
+  </div>
+
+  <div class="container">
+    <dl class="hero__meta" data-hero-item>
+      <div><dt>تکنولوژی</dt><dd class="ltr">AluK · Italy</dd></div>
+      <div><dt>استاندارد</dt><dd class="ltr">EN 13830 · CE</dd></div>
+      <div><dt>پوشش</dt><dd class="ltr">Qualicoat</dd></div>
+      <div><dt>آلیاژ</dt><dd class="ltr">6063-T6</dd></div>
+    </dl>
+  </div>
+</section>
+
+
+{# ========================= CREDENTIAL MARQUEE ============================ #}
+<div class="strip" aria-hidden="true">
+  <div class="strip__track" data-marquee>
+    {% for i in "12" %}
+      <span class="strip__item ltr">AluK Italy — Licensed Systems</span>
+      <span class="strip__item ltr">EN 13830 Curtain Walling</span>
+      <span class="strip__item ltr">ISO 9001:2015</span>
+      <span class="strip__item ltr">Qualicoat Powder Coating</span>
+      <span class="strip__item ltr">CE Marking</span>
+      <span class="strip__item ltr">Thermal Break 24mm Polyamide</span>
+    {% endfor %}
+  </div>
+</div>
+
+
+{# ================================ STATS ================================== #}
+<section class="section section--flush">
+  <div class="container">
+    <div class="stats">
+      {% for stat in stats %}
+        <div class="stat" data-reveal>
+          <div class="stat__value">
+            <span data-count="{{ stat.value }}">۰</span>{% if stat.suffix %}<span class="stat__suffix">{{ stat.suffix }}</span>{% endif %}
+          </div>
+          <p class="stat__label">{{ stat.label }}</p>
+        </div>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+{# ==========================================================================
+   SCROLLYTELLING — AluK technology.
+   The visual column is sticky; each step swaps the active layer as it scrolls
+   through the centre of the viewport.
+   ========================================================================== #}
+<section class="section" id="technology">
+  <div class="container">
+    <header class="section-head">
+      <span class="eyebrow" data-reveal>تکنولوژی</span>
+      <h2 class="h2" data-reveal>
+        <span class="ltr">AluK</span> ایتالیا، روی خط تولید آلوپان
+      </h2>
+      <p class="lead" data-reveal>
+        پروفیل، یراق و جزئیات آب‌بندی از یک سیستم واحد می‌آیند؛ به همین دلیل
+        عملکرد حرارتی و آب‌بندی نما در محل اجرا همان چیزی است که در دفتر فنی محاسبه شده.
+      </p>
+    </header>
+
+    <div class="story" data-story>
+      <div class="story__visual">
+        <span class="story__index"><span data-story-index>۰۱</span> / ۰۳</span>
+
+        {# Layer 1 — thermal break profile section #}
+        <div class="story__layer is-active" data-story-layer>
+          <svg viewBox="0 0 400 260" fill="none" role="img" aria-label="مقطع پروفیل ترمال‌بریک">
+            <rect x="40"  y="40" width="140" height="180" fill="#C9CFD6"/>
+            <rect x="220" y="40" width="140" height="180" fill="#C9CFD6"/>
+            <rect x="180" y="70" width="40"  height="120" fill="#0047AB"/>
+            <rect x="70"  y="70" width="80"  height="120" fill="#FFFFFF"/>
+            <rect x="250" y="70" width="80"  height="120" fill="#FFFFFF"/>
+            <path d="M180 100h40M180 130h40M180 160h40" stroke="#FFFFFF" stroke-width="3"/>
+            <text x="200" y="248" fill="#767E8A" font-size="13" text-anchor="middle" font-family="monospace">24mm polyamide</text>
+          </svg>
+        </div>
+
+        {# Layer 2 — hardware #}
+        <div class="story__layer" data-story-layer>
+          <svg viewBox="0 0 400 260" fill="none" role="img" aria-label="یراق‌آلات">
+            <rect x="60" y="30" width="280" height="200" stroke="#C9CFD6" stroke-width="10"/>
+            <circle cx="200" cy="130" r="46" stroke="#0047AB" stroke-width="10"/>
+            <circle cx="200" cy="130" r="14" fill="#0047AB"/>
+            <path d="M200 84V30M200 230v-54M60 130h94M246 130h94" stroke="#C9CFD6" stroke-width="8"/>
+            <text x="200" y="252" fill="#767E8A" font-size="13" text-anchor="middle" font-family="monospace">25,000 cycles</text>
+          </svg>
+        </div>
+
+        {# Layer 3 — triple sealing #}
+        <div class="story__layer" data-story-layer>
+          <svg viewBox="0 0 400 260" fill="none" role="img" aria-label="آب‌بندی سه‌مرحله‌ای">
+            <rect x="50" y="60" width="300" height="140" fill="#F7F8FA" stroke="#C9CFD6" stroke-width="4"/>
+            <rect x="50"  y="60" width="26" height="140" fill="#0047AB"/>
+            <rect x="187" y="60" width="26" height="140" fill="#0047AB" opacity=".65"/>
+            <rect x="324" y="60" width="26" height="140" fill="#0047AB" opacity=".35"/>
+            <path d="M100 130h70M240 130h70" stroke="#C9CFD6" stroke-width="6" stroke-dasharray="10 10"/>
+            <text x="200" y="238" fill="#767E8A" font-size="13" text-anchor="middle" font-family="monospace">1200 Pa watertightness</text>
+          </svg>
+        </div>
+      </div>
+
+      <div class="story__steps">
+        {% for step in tech_steps %}
+          <article class="story__step" data-story-step data-reveal>
+            <span class="num-badge">{{ step.index }}</span>
+            <h3 class="h3">{{ step.title }}</h3>
+            <p class="muted">{{ step.body }}</p>
+            <dl class="story__spec">
+              {% for k, v in step.specs %}
+                <div><dt>{{ k }}</dt><dd class="ltr">{{ v }}</dd></div>
+              {% endfor %}
+            </dl>
+          </article>
+        {% endfor %}
+      </div>
+    </div>
+  </div>
+</section>
+
+
+{# ==========================================================================
+   PROJECT — Atlas Mall, full-bleed parallax
+   ========================================================================== #}
+<section class="project" id="atlas">
+  {# Real photo: style="--project-image: url('{% static 'images/atlas-mall.jpg' %}')" #}
+  <div class="project__media" data-parallax>
+    <div class="project__art"></div>
+  </div>
+  <div class="project__grid" aria-hidden="true"></div>
+
+  <div class="container project__inner">
+    <span class="eyebrow eyebrow--light" data-reveal>پروژه‌ی شاخص</span>
+
+    <h2 class="h2 project__title" data-split-words>
+      نمای مجتمع تجاری اطلس
+    </h2>
+
+    <p class="project__body" data-reveal>
+      نمای کرتین‌وال یکپارچه با شیشه‌ی دوجداره‌ی لوایمیسیو و پروفیل ترمال‌بریک؛
+      طراحی‌شده برای بار باد منطقه و اجراشده روی سازه‌ی موجود بدون توقف بهره‌برداری.
+    </p>
+
+    <dl class="project__facts" data-reveal>
+      <div><dt>مساحت نما</dt><dd><span class="num">۸٬۴۰۰</span> م²</dd></div>
+      <div><dt>سیستم</dt><dd class="ltr">SL 52 Curtain Wall</dd></div>
+      <div><dt>سال</dt><dd><span class="num">۱۴۰۳</span></dd></div>
+      <div><dt>موقعیت</dt><dd>تهران</dd></div>
+    </dl>
+
+    <a class="link-line link-line--light" href="{% url 'projects:list' %}" data-reveal>
+      مشاهده‌ی همه‌ی پروژه‌ها
+      <svg width="16" height="16" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M10 3 5 8l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+
+{# ============================== PARTS GRID =============================== #}
+<section class="section" id="parts">
+  <div class="container">
+    <header class="section-head section-head--split">
+      <div class="section-head__text">
+        <span class="eyebrow" data-reveal>اجزای سیستم</span>
+        <h2 class="h2" data-reveal>هر نما، مجموعه‌ای از شش تصمیم مهندسی است</h2>
+      </div>
+      <a class="link-line" href="{% url 'systems:list' %}" data-reveal>کاتالوگ فنی</a>
+    </header>
+
+    <div class="parts">
+      {% for part in parts %}
+        <a class="part" href="{% url 'systems:list' %}" data-reveal>
+          <span class="part__index">{{ part.index }}</span>
+          <svg class="part__icon" aria-hidden="true"><use href="#i-{{ part.icon }}"></use></svg>
+          <h3 class="part__title">{{ part.title }}</h3>
+          <p class="part__text">{{ part.text }}</p>
+          <svg class="part__arrow" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+            <path d="M10 3 5 8l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/>
+          </svg>
+        </a>
+      {% endfor %}
+    </div>
+  </div>
+</section>
+
+
+{# ================================= CTA =================================== #}
+<section class="section cta">
+  <div class="container cta__inner">
+    <span class="eyebrow eyebrow--light" data-reveal>گام بعدی</span>
+    <h2 class="h2 cta__title" data-split-words>نمای پروژه‌ی بعدی‌تان را با ما محاسبه کنید</h2>
+    <p class="lead cta__lead" data-reveal>
+      نقشه‌ی معماری را بفرستید؛ دفتر فنی آلوپان مقطع پیشنهادی، محاسبه‌ی حرارتی و برآورد اولیه را آماده می‌کند.
+    </p>
+    <a class="btn btn--invert" href="{% url 'contact:contact' %}" data-reveal>
+      درخواست مشاوره‌ی فنی
+      <svg class="btn__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M10 3 5 8l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/>
+      </svg>
+    </a>
+  </div>
+</section>
+
+{% endblock %}

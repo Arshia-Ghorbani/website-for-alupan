@@ -1,0 +1,14 @@
+New enquiry received via alupan.com
+
+Type:     {{ inquiry.get_kind_display }}
+Name:     {{ inquiry.full_name }}
+Company:  {{ inquiry.company|default:"-" }}
+Email:    {{ inquiry.email }}
+Phone:    {{ inquiry.phone|default:"-" }}
+System:   {{ inquiry.related_system|default:"-" }}
+Subject:  {{ inquiry.subject|default:"-" }}
+
+Message:
+{{ inquiry.message }}
+
+Received: {{ inquiry.created_at }}  IP: {{ inquiry.ip_address|default:"-" }}

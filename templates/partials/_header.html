@@ -1,0 +1,36 @@
+{% load i18n %}
+<header class="header" data-header>
+  <div class="container header__inner">
+    <a class="brand" href="{% url 'core:home' %}" aria-label="آلوپان">
+      <span class="brand__fa">آلوپان</span>
+      <span class="brand__en ltr">ALUPAN</span>
+    </a>
+
+    <nav class="nav" aria-label="{% translate 'ناوبری اصلی' %}">
+      <a class="nav__link" href="{% url 'systems:list' %}">سیستم‌ها</a>
+      <a class="nav__link" href="{% url 'projects:list' %}">پروژه‌ها</a>
+      <a class="nav__link" href="{% url 'core:about' %}">درباره‌ی ما</a>
+      <a class="nav__link" href="{% url 'news:list' %}">اخبار</a>
+      <a class="nav__link" href="{% url 'contact:contact' %}">تماس</a>
+    </nav>
+
+    <div class="lang" aria-label="{% translate 'انتخاب زبان' %}">
+      {% get_available_languages as LANGUAGES %}
+      {% for code, name in LANGUAGES %}
+        <a class="lang__item {% if code == LANGUAGE_CODE %}is-active{% endif %}"
+           href="/{{ code }}/">{{ code|upper }}</a>{% if not forloop.last %}<span aria-hidden="true">/</span>{% endif %}
+      {% endfor %}
+    </div>
+
+    <a class="btn header__cta" href="{% url 'contact:contact' %}">
+      درخواست مشاوره
+      <svg class="btn__icon" viewBox="0 0 16 16" fill="none" aria-hidden="true">
+        <path d="M10 3 5 8l5 5" stroke="currentColor" stroke-width="1.6" stroke-linecap="square"/>
+      </svg>
+    </a>
+
+    <button class="burger" type="button" aria-label="{% translate 'باز کردن منو' %}" aria-expanded="false">
+      <span></span><span></span><span></span>
+    </button>
+  </div>
+</header>

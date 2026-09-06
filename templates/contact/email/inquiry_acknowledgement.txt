@@ -1,0 +1,8 @@
+Dear {{ inquiry.full_name }},
+
+Thank you for contacting Alupan. We have received your enquiry and a member of
+our team will respond within one business day.
+
+Reference: #{{ inquiry.pk }}
+
+Alupan
